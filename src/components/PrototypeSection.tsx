@@ -1,9 +1,6 @@
-import { useState } from "react";
-import { Play } from "lucide-react";
-import { Input } from "@/components/ui/input";
-
 const PrototypeSection = () => {
-  const [videoSrc, setVideoSrc] = useState("");
+  // Demo URL - replace with actual prototype video
+  const videoSrc = "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
 
   return (
     <section className="py-12 px-6">
@@ -16,28 +13,14 @@ const PrototypeSection = () => {
           Watch our working 3x3 solenoid prototype sync perfectly with a live table tennis rally.
         </p>
 
-        <div className="max-w-2xl space-y-4">
-          <div className="bg-card rounded-lg aspect-video flex items-center justify-center overflow-hidden">
-            {videoSrc ? (
-              <video
-                src={videoSrc}
-                controls
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="flex flex-col items-center gap-3">
-                <Play className="h-10 w-10 text-card-foreground/60" />
-                <span className="text-card-foreground/60 text-sm">Video/Image</span>
-              </div>
-            )}
+        <div className="max-w-2xl">
+          <div className="bg-card rounded-lg aspect-video overflow-hidden">
+            <video
+              src={videoSrc}
+              controls
+              className="w-full h-full object-cover"
+            />
           </div>
-          
-          <Input
-            placeholder="Enter video/image URL..."
-            value={videoSrc}
-            onChange={(e) => setVideoSrc(e.target.value)}
-            className="bg-muted border-border text-sm"
-          />
         </div>
       </div>
     </section>

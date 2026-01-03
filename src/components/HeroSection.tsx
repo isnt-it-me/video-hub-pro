@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ExternalLink } from "lucide-react";
 
 const HeroSection = () => {
-  const [imageSrc, setImageSrc] = useState("");
+  // Demo URLs - replace these with actual URLs
+  const heroImageSrc = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop";
 
   return (
     <section className="pt-24 pb-12 px-6">
@@ -12,23 +11,11 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row gap-6">
           {/* Left - Image Card */}
           <div className="flex-1">
-            <div className="bg-card rounded-lg overflow-hidden aspect-[4/3] flex items-center justify-center">
-              {imageSrc ? (
-                <img
-                  src={imageSrc}
-                  alt="Hero"
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <span className="text-card-foreground/60 text-lg">pic</span>
-              )}
-            </div>
-            <div className="mt-3">
-              <Input
-                placeholder="Enter image URL..."
-                value={imageSrc}
-                onChange={(e) => setImageSrc(e.target.value)}
-                className="bg-muted border-border text-sm"
+            <div className="bg-card rounded-lg overflow-hidden aspect-[4/3]">
+              <img
+                src={heroImageSrc}
+                alt="Hero"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
