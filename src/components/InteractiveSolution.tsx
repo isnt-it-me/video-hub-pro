@@ -1,13 +1,14 @@
 import { useState, useRef, useCallback } from "react";
 import { Upload, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 const InteractiveSolution = () => {
   const [uploadedVideo, setUploadedVideo] = useState<string | null>(null);
-  const [resultVideoSrc, setResultVideoSrc] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Demo URL - replace with actual CV tracked result video
+  const resultVideoSrc = "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
 
   const handleFileChange = (file: File | null) => {
     if (file && file.type.startsWith("video/")) {
@@ -58,12 +59,14 @@ const InteractiveSolution = () => {
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
+              onClick={handleUploadClick}
             >
               {uploadedVideo ? (
                 <video
                   src={uploadedVideo}
                   controls
                   className="w-full h-full object-cover"
+                  onClick={(e) => e.stopPropagation()}
                 />
               ) : (
                 <div className="flex flex-col items-center gap-4 p-8">
@@ -98,26 +101,14 @@ const InteractiveSolution = () => {
           {/* Right - Result Section */}
           <div className="space-y-4">
             <div className="bg-card rounded-lg aspect-video flex items-center justify-center overflow-hidden">
-              {resultVideoSrc ? (
-                <video
-                  src={resultVideoSrc}
-                  controls
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="flex flex-col items-center gap-4">
-                  <Play className="h-10 w-10 text-card-foreground/60" />
-                  <span className="text-card-foreground text-lg font-medium">Result</span>
-                </div>
-              )}
+              <video
+                src={resultVideoSrc}
+                controls
+                className="w-full h-full object-cover"
+              />
             </div>
             
-            <Input
-              placeholder="Enter result video URL..."
-              value={resultVideoSrc}
-              onChange={(e) => setResultVideoSrc(e.target.value)}
-              className="bg-muted border-border text-sm"
-            />
+            <div className="h-10" /> {/* Spacer to match left side */}
             
             <p className="text-center text-foreground/70 text-sm">CV Tracked Result</p>
           </div>
