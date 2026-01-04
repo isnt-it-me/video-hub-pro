@@ -27,9 +27,11 @@ const HeroSection = () => {
                 About
               </h2>
               <p className="text-card-foreground/80 text-sm leading-relaxed">
-                An accessibility-focused solution that translates live sports visuals 
-                into haptic feedback for the visually impaired, enabling them to 
-                experience the rhythm and excitement of the game.
+                Live sports rely heavily on visuals, making them inaccessible to millions of visually impaired fans. This project converts live sports visuals into real-time haptic feedback, allowing users to experience the rhythm and intensity of the game through touch.
+
+Using computer vision, the system tracks the ball during a table tennis match and translates key events—hits, bounces, and rallies—into tactile patterns via a haptic feedback board. Powered by an ESP32 and low-latency actuators, it delivers instant, intuitive feedback.
+
+More than assistive tech, this is an emotional bridge—bringing inclusion, excitement, and shared sporting experiences to those left out of live play.
               </p>
             </div>
           </div>
