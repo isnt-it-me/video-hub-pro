@@ -8,7 +8,7 @@ const Navbar = () => {
             href="https://mybharat.gov.in/pages/design_home"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg font-medium text-white"
+            className="text-lg font-medium text-foreground"
           >
             Design for Bharat
           </a>
@@ -21,7 +21,7 @@ const Navbar = () => {
             href="https://mybharat.gov.in/pages/vbyld_2026"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg font-medium text-white"
+            className="text-lg font-medium text-foreground"
           >
             VBYLD26
           </a>
