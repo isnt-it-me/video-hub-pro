@@ -14,7 +14,7 @@ const Navbar = () => {
           </a>
 
           <span className="text-lg font-display font-bold text-foreground">
-            NIRMAAN51
+            NIRMAAN 51
           </span>
 
           <a
